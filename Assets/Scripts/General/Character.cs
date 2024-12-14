@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class Character : MonoBehaviour
     public float InVulnerableDuration;
     private float InVulnerableCounter;
     public bool InVulnerable;
+
+    public UnityEvent<Character> OnHealthChange;
+
     public void Start()
     {
         CurrentHP = MaxHP;
+
+        OnHealthChange?.Invoke(this);
     }
     public void Update()
     {
@@ -44,6 +50,8 @@ public class Character : MonoBehaviour
         {
             CurrentHP = 0;
         }
+
+        OnHealthChange?.Invoke(this);
     }
     
     //§PÂ_¨ü¶ËµL¼Ä
