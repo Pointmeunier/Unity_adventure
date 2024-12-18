@@ -10,22 +10,38 @@ public class PlayerController : MonoBehaviour
     public Vector2 inputDirection;
     private Rigidbody2D rb;
     private PhysicsCheck physicscheck;
+    private CapsuleCollider2D coll;
+    private PlayerAnimation playerAnimation;
+
     [Header("速度參數")]
     public float Speed;
     public float JumpForce;
 
+    [Header("物體材質")]
+
+    public PhysicsMaterial2D wall;
+    public PhysicsMaterial2D ground;
+
+    [Header("狀態")]
     public bool isHurt;
     public float HurtForce;
 
     public bool isDead;
+    public bool isAttack;
     private void Awake()
     {
         physicscheck = GetComponent<PhysicsCheck>();
         inputControll = new PalyerInputControll();
         rb = GetComponent<Rigidbody2D>();
-
+        playerAnimation = GetComponent<PlayerAnimation>();
+        coll = GetComponent<CapsuleCollider2D>();
+        //跳躍
         inputControll.GamePlayer.Jump.started += Jump;
+        //攻擊  
+        inputControll.GamePlayer.Attack.started += PlayerAttack;
     }
+
+
 
     private void OnEnable()
     {
@@ -40,11 +56,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         inputDirection = inputControll.GamePlayer.Move.ReadValue<Vector2>();
+        CheckState();
     }
 
     private void FixedUpdate()
     {
-        if (!isHurt)
+        if (!isHurt && !isAttack)
         {
             Move();
         }
@@ -71,7 +88,18 @@ public class PlayerController : MonoBehaviour
         if (physicscheck.isGround)
         rb.AddForce(transform.up*JumpForce,ForceMode2D.Impulse);
     }
-    public void GetHurt(Transform attacker)
+
+    private void PlayerAttack(InputAction.CallbackContext context)
+    {
+        if (physicscheck.isGround)
+        {
+            playerAnimation.PlayAttack();
+            isAttack = true;
+        }
+    }
+
+        #region UnityEvent
+        public void GetHurt(Transform attacker)
     {
         isHurt = true;
         rb.velocity = Vector2.zero;
@@ -84,7 +112,12 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         inputControll.GamePlayer.Disable();
-        Debug.Log(isDead);
     }
+    #endregion
 
+    //檢測在地面或牆壁 切換物理材質球
+    private void CheckState()
+    {
+        coll.sharedMaterial = physicscheck.isGround ? ground : wall;
+    }
 }

@@ -14,9 +14,18 @@ public class Enemy : MonoBehaviour
     public float ChaseSpeed;
     public float CurrentSpeed;
 
+
     public Vector3 FaceDir;
+    public float hurtForce;
+
+    public Transform attacker;
+
     [Header("經驗值")]
     public float Exp;
+
+    [Header("狀態")]
+    public bool isHurt;
+    public bool isDead;
 
     [Header("圖片初始面向")]
     public bool IsFacingRight; // true 表示初始面向右
@@ -50,7 +59,11 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isHurt & !isDead)
+        {
+            Move();
+
+        }
     }
 
     public virtual void Move()
@@ -63,4 +76,45 @@ public class Enemy : MonoBehaviour
         // 翻轉怪物方向
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
+    public void OnTakeDamage(Transform attackerTrans)
+    {
+        attacker = attackerTrans;
+
+        if(attackerTrans.position.x - transform.position.x > 0)
+        {
+            Flip();
+        }
+        if (attackerTrans.position.x - transform.position.x < 0)
+        {
+            Flip();
+        }
+        //受傷被擊退
+        isHurt = true;
+        ani.SetTrigger("Hurt");
+        Vector2 dir = new Vector2(transform.position.x - attackerTrans.position.x, 0).normalized;
+
+        rb.AddForce(dir*hurtForce, ForceMode2D.Impulse);
+        
+        StartCoroutine(OnHurt(dir));
+    }
+    private IEnumerator OnHurt(Vector2 dir)
+    {
+     
+        rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.3f);
+        isHurt = false;
+    }
+
+    public void Dead()
+    {
+        gameObject.layer = 2;
+        ani.SetBool("Dead",true);
+        isDead = true;
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(this.gameObject);
+    }
+
 }
