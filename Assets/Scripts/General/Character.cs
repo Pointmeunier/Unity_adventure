@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
 
     public UnityEvent<Character> OnHealthChange;
 
+    public UnityEvent<Transform> OnTakeDamage;
+    public UnityEvent OnDie;
     public void Start()
     {
         CurrentHP = MaxHP;
@@ -44,11 +46,14 @@ public class Character : MonoBehaviour
         {
             CurrentHP -= attacker.damage;
             TriggerInvulneraber();
+
+            OnTakeDamage?.Invoke(attacker.transform);
         }
         //當前血量-敵人傷害<=0 死亡
         else
         {
             CurrentHP = 0;
+            OnDie?.Invoke();
         }
 
         OnHealthChange?.Invoke(this);

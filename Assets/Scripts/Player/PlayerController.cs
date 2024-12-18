@@ -12,8 +12,12 @@ public class PlayerController : MonoBehaviour
     private PhysicsCheck physicscheck;
     [Header("速度參數")]
     public float Speed;
-    public float JumpForce; 
+    public float JumpForce;
 
+    public bool isHurt;
+    public float HurtForce;
+
+    public bool isDead;
     private void Awake()
     {
         physicscheck = GetComponent<PhysicsCheck>();
@@ -40,10 +44,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isHurt)
+        {
+            Move();
+        }
+
+
     }
 
-    public void Move()
+        public void Move()
     {
         rb.velocity = new Vector2(inputDirection.x *Speed * Time.deltaTime, rb.velocity.y);
         
@@ -61,6 +70,21 @@ public class PlayerController : MonoBehaviour
     {
         if (physicscheck.isGround)
         rb.AddForce(transform.up*JumpForce,ForceMode2D.Impulse);
+    }
+    public void GetHurt(Transform attacker)
+    {
+        isHurt = true;
+        rb.velocity = Vector2.zero;
+        Vector2 dir = new Vector2((transform.position.x - attacker.position.x),0).normalized;
+
+        rb.AddForce(dir * HurtForce,ForceMode2D.Impulse);
+      
+    }
+    public void Dead()
+    {
+        isDead = true;
+        inputControll.GamePlayer.Disable();
+        Debug.Log(isDead);
     }
 
 }

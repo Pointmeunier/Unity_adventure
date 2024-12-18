@@ -7,12 +7,15 @@ public class PlayerAnimation : MonoBehaviour
     private Animator ani;
     private Rigidbody2D rb;
     private PhysicsCheck physicsCheck;
+    
+    private PlayerController playerController;
 
     public void Awake()
     {
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         physicsCheck = GetComponent<PhysicsCheck>();
+        playerController = GetComponent<PlayerController>();
     }
 
     public void Update()
@@ -26,9 +29,18 @@ public class PlayerAnimation : MonoBehaviour
         ani.SetFloat("SpeedX",Mathf.Abs(rb.velocity.x));
         //偵測玩家Y值速度播放跳躍動畫
         ani.SetFloat("SpeedY", rb.velocity.y);
-        ani.SetBool("isGround", physicsCheck.isGround); 
+        ani.SetBool("isGround", physicsCheck.isGround);
+        //死亡
+        ani.SetBool("isDead", playerController.isDead);
+    }
+    
+    public void PlayHurt()
+    {
+        ani.SetTrigger("hurt");
+        
     }
 
+
 }
-
-
+    
+    
