@@ -19,12 +19,22 @@ public class CameraControl : MonoBehaviour
     private void GetNewCameraBounds()
     {
         var obj = GameObject.FindGameObjectWithTag("Bounds");
-        if (obj == null) {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (obj == null || player == null) {
             return;
         }
         confiner2D.m_BoundingShape2D = obj.GetComponent<Collider2D>();
 
+        var virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        if (virtualCamera != null)
+        {
+            virtualCamera.LookAt = player.transform;
+            virtualCamera.Follow = player.transform;
+        }
+
         confiner2D.InvalidateCache();
+
+
 
 
     }
