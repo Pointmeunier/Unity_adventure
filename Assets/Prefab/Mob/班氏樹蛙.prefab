@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1821906661396905839}
   - component: {fileID: 8583950297205134299}
   - component: {fileID: 1595021841101140933}
-  - component: {fileID: 1336958580975617727}
   - component: {fileID: 8207998298780758932}
+  - component: {fileID: 3780062691584880852}
   m_Layer: 7
   m_Name: "\u73ED\u6C0F\u6A39\u86D9"
   m_TagString: Enemy
@@ -242,7 +242,7 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1336958580975617727}
+      - m_Target: {fileID: 3780062691584880852}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: OnTakeDamage
         m_Mode: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1336958580975617727}
+      - m_Target: {fileID: 3780062691584880852}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: Dead
         m_Mode: 1
@@ -284,28 +284,6 @@ MonoBehaviour:
   damage: 15
   attackRange: 0
   attackRate: 0
---- !u!114 &1336958580975617727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2648216554254667249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115a3e5b3c2ae374a911025e57be6be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NormalSpeed: 200
-  ChaseSpeed: 0
-  CurrentSpeed: 0
-  FaceDir: {x: 0, y: 0, z: 0}
-  hurtForce: 0
-  attacker: {fileID: 0}
-  Exp: 150
-  isHurt: 0
-  isDead: 0
-  IsFacingRight: 1
 --- !u!114 &8207998298780758932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,3 +307,25 @@ MonoBehaviour:
   isGround: 0
   touchLeftWall: 0
   touchRightWall: 0
+--- !u!114 &3780062691584880852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2648216554254667249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115a3e5b3c2ae374a911025e57be6be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalSpeed: 200
+  ChaseSpeed: 0
+  CurrentSpeed: 0
+  FaceDir: {x: 0, y: 0, z: 0}
+  hurtForce: 0
+  attacker: {fileID: 0}
+  Exp: 0
+  isHurt: 0
+  isDead: 0
+  IsFacingRight: 1

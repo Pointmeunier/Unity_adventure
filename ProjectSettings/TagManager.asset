@@ -7,6 +7,7 @@ TagManager:
   - Bounds
   - Enemy
   - PlayerTele
+  - Platform
   layers:
   - Default
   - TransparentFX

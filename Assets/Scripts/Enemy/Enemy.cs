@@ -62,13 +62,14 @@ public class Enemy : MonoBehaviour
         if (!isHurt & !isDead)
         {
             Move();
-
+            Debug.Log(FaceDir.x);
         }
     }
 
     public virtual void Move()
     {
         rb.velocity = new Vector2(CurrentSpeed * FaceDir.x * Time.deltaTime, rb.velocity.y);
+        Debug.Log("Current rb.velocity.x: " + rb.velocity.x);
     }
 
     protected void Flip()
@@ -80,26 +81,29 @@ public class Enemy : MonoBehaviour
     {
         attacker = attackerTrans;
 
-        if(attackerTrans.position.x - transform.position.x > 0)
+        // 計算攻擊者與怪物之間的相對位置，並根據位置翻轉怪物
+        if (attackerTrans.position.x - transform.position.x > 0)
         {
-            Flip();
+            Flip(); // 如果攻擊者在怪物右邊，翻轉怪物
         }
         if (attackerTrans.position.x - transform.position.x < 0)
         {
-            Flip();
+            Flip(); // 如果攻擊者在怪物左邊，翻轉怪物
         }
-        //受傷被擊退
+
+        // 顯示受傷動畫
         isHurt = true;
         ani.SetTrigger("Hurt");
-        Vector2 dir = new Vector2(transform.position.x - attackerTrans.position.x, 0).normalized;
 
-        rb.AddForce(dir*hurtForce, ForceMode2D.Impulse);
-        
+
+        Vector2 dir = new Vector2(transform.position.x - attackerTrans.position.x, 0).normalized;
+        rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
+
         StartCoroutine(OnHurt(dir));
     }
     private IEnumerator OnHurt(Vector2 dir)
     {
-     
+
         rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.3f);
         isHurt = false;
@@ -108,7 +112,7 @@ public class Enemy : MonoBehaviour
     public void Dead()
     {
         gameObject.layer = 2;
-        ani.SetBool("Dead",true);
+        ani.SetBool("Dead", true);
         isDead = true;
     }
 
