@@ -345,8 +345,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  m_sharedMaterial: {fileID: -3853082282543502775, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -531,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 732.01, y: 369.58}
+  m_AnchoredPosition: {x: 756, y: 369.58}
   m_SizeDelta: {x: 201.5842, y: 140.8911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175393010
@@ -580,7 +580,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 175393013}
         m_TargetAssemblyTypeName: IllustratedBookButton, Assembly-CSharp
-        m_MethodName: BookOpen
+        m_MethodName: BookInitOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -642,7 +642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlantBook: {fileID: 356426302}
   EnemyBook: {fileID: 278580074}
-  ButtonPrefab: {fileID: 56463499733610732, guid: 08855d6de4d2a754792118ae8b464c4c, type: 3}
+  ButtonPrefab: {fileID: 1155700374320512800, guid: f005404d52c750940bf8fd356d4711c1, type: 3}
+  font: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
 --- !u!1001 &199493421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,8 +740,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -305.05865, y: -20.33722}
-  m_SizeDelta: {x: -1414.0374, y: -375.64136}
+  m_AnchoredPosition: {x: -301.21436, y: -21.772644}
+  m_SizeDelta: {x: -1329.2927, y: -378.5118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &241639760
 MonoBehaviour:
@@ -763,7 +764,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 20, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &241639761
@@ -1189,6 +1190,7 @@ GameObject:
   - component: {fileID: 357643262}
   - component: {fileID: 357643261}
   - component: {fileID: 357643260}
+  - component: {fileID: 357643264}
   m_Layer: 5
   m_Name: SceneTransEffect
   m_TagString: Untagged
@@ -1267,6 +1269,29 @@ RectTransform:
   m_AnchoredPosition: {x: -7027.8643, y: -2136.6436}
   m_SizeDelta: {x: 1137.526, y: 538.871}
   m_Pivot: {x: -5.906143, y: -3.5036986}
+--- !u!223 &357643264
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357643259}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &359688206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,8 +4362,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  m_sharedMaterial: {fileID: -3853082282543502775, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5144,7 +5169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'posion:'
+  m_text: "\u6BD2\u6027:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5256,8 +5281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -305.0588, y: -20.33728}
-  m_SizeDelta: {x: -1414.0374, y: -375.6414}
+  m_AnchoredPosition: {x: -300.5819, y: -21.77301}
+  m_SizeDelta: {x: -1321.0839, y: -378.511}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564944723
 MonoBehaviour:
@@ -5280,7 +5305,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 20, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &564944724
@@ -5439,8 +5464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -467, y: 388}
-  m_SizeDelta: {x: 116.0737, y: 80.3858}
+  m_AnchoredPosition: {x: -453.70605, y: 381.7351}
+  m_SizeDelta: {x: 105.988, y: 92.915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711430863
 MonoBehaviour:
@@ -5455,8 +5480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentBook: {fileID: 278580074}
-  OtherBook: {fileID: 0}
-  BookButtonScript: {fileID: 0}
+  OtherBook: {fileID: 356426302}
+  BookButtonScript: {fileID: 175393013}
 --- !u!114 &711430864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5833,8 +5858,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  m_sharedMaterial: {fileID: -3853082282543502775, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7248,8 +7273,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  m_sharedMaterial: {fileID: -3853082282543502775, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7309,7 +7334,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -77.75131, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7359,8 +7384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -337.6644, y: 386.2298}
-  m_SizeDelta: {x: 116.0737, y: 80.3858}
+  m_AnchoredPosition: {x: -330.976, y: 379.894}
+  m_SizeDelta: {x: 102.698, y: 93.058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269654265
 MonoBehaviour:
@@ -7375,8 +7400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentBook: {fileID: 356426302}
-  OtherBook: {fileID: 0}
-  BookButtonScript: {fileID: 0}
+  OtherBook: {fileID: 278580074}
+  BookButtonScript: {fileID: 175393013}
 --- !u!114 &1269654266
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -161,7 +161,7 @@ public class IllustratedBookButton : MonoBehaviour
                     buttonText.font = font;
 
                     buttonText.text = enemyName;
-                    buttonText.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, -20);
+                    buttonText.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, -30);
                     string imagePath = enemyData["image"].ToString();
                     Sprite enemySprite = LoadSprite(imagePath);
                     newButton.GetComponent<Image>().sprite = enemySprite;
