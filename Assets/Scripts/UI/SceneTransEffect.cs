@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneTransEffect : MonoBehaviour
 {
     public Image fadeImage; // 黑色淡入淡出的 UI 圖像
-    public float fadeDuration = 3f; // 淡入淡出的時間
+    public float fadeDuration = 5f; // 淡入淡出的時間
     private bool isFading = false; // 是否正在淡入淡出
 
     private void Start()
