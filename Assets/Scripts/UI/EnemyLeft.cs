@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using UnityEngine.SceneManagement; // 引入場景管理命名空間
 
 public class EnemyLeft : MonoBehaviour
@@ -7,11 +8,20 @@ public class EnemyLeft : MonoBehaviour
     public TMP_Text enemyCountText; // TextMeshPro 文字 UI 元件
     private string[] sceneNames = { "GameScene2", "GameScene3", "GameScene4" }; // 預設的場景列表
     private int currentSceneIndex; // 當前場景索引
+    private GameObject player; // 玩家物件
 
     private void Start()
     {
-        // 初始化當前場景索引
         currentSceneIndex = GetCurrentSceneIndex();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogError("Player with tag 'Player' not found.");
+        }
+        else
+        {
+            StartCoroutine(SetPlayerToStartPoint());
+        }
     }
 
     private void Update()
@@ -46,6 +56,23 @@ public class EnemyLeft : MonoBehaviour
         // 若當前場景不在列表中，則返回 -1
         return -1;
     }
+
+    // 設置玩家位置到 StartPoint
+    private IEnumerator SetPlayerToStartPoint()
+    {
+        yield return null; // 等待一幀確保所有場景物件已初始化
+
+        GameObject startPoint = GameObject.FindGameObjectWithTag("StartPoint");
+        if (startPoint == null)
+        {
+            Debug.LogError("StartPoint with tag 'StartPoint' not found.");
+        }
+        else
+        {
+            player.transform.position = startPoint.transform.position;
+        }
+    }
+
 
     // 切換場景的邏輯
     private void SwitchScene()

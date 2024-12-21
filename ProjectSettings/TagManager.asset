@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerTele
   - Platform
+  - StartPoint
   layers:
   - Default
   - TransparentFX

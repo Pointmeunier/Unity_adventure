@@ -62,14 +62,12 @@ public class Enemy : MonoBehaviour
         if (!isHurt & !isDead)
         {
             Move();
-            Debug.Log(FaceDir.x);
         }
     }
 
     public virtual void Move()
     {
         rb.velocity = new Vector2(CurrentSpeed * FaceDir.x * Time.deltaTime, rb.velocity.y);
-        Debug.Log("Current rb.velocity.x: " + rb.velocity.x);
     }
 
     protected void Flip()
