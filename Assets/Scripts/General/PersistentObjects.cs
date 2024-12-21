@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class PersistentObjects : MonoBehaviour
 {
-    public GameObject player; // ª±®aª«¥ó
-    public GameObject canvas; // µe¥¬
+    public GameObject player; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½
+    public GameObject canvas; // ï¿½eï¿½ï¿½
     public GameObject DontDestroyObj;
     public GameObject ScemeLoadEffect;
 
     private void Start()
     {
-        // ³]¸mª±®a©Mµe¥¬¤£ÀH³õ´º¤Á´«¦Ó¾P·´
+        // ï¿½]ï¿½mï¿½ï¿½ï¿½aï¿½Mï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾Pï¿½ï¿½
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(canvas);
-        DontDestroyOnLoad(DontDestroyObj);//ºÞ²zª«¥ó¤£³QºR·´ªº¦¹ª«¥ó¥»¨­
+        DontDestroyOnLoad(DontDestroyObj);//ï¿½Þ²zï¿½ï¿½ï¿½ó¤£³Qï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥»¨ï¿½
         DontDestroyOnLoad(ScemeLoadEffect);
 
     }

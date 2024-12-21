@@ -1,0 +1,72 @@
+{
+    "Plant": {
+        "牡丹花": {
+            "detail": "牡丹花被譽為“花中之王”，具有極高的觀賞價值和文化意義，象徵富貴、繁榮。",
+            "image":"Assets/植物/有毒/牡丹花.png",
+            "pick": false
+        },
+        "姑婆芋": {
+            "detail": "姑婆芋是一種大型草本植物，常見於熱帶和亞熱帶地區，其葉片巨大，但全株有毒。",
+            "image":"Assets/植物/有毒/姑婆芋.png",
+            "pick": false
+        },
+        "孤挺花": {
+            "detail": "孤挺花是一種球根植物，以大而鮮豔的花朵著稱，通常用於室內觀賞。",
+            "image":"Assets/植物/有毒/孤挺花.png",
+            "pick": false
+        },
+        "愚毛艮": {
+            "detail": "翡翠蘭是一種罕見的蘭花，以其特殊的翡翠綠色花朵聞名，象徵珍貴與高雅。",
+            "image":"Assets/植物/有毒/愚毛艮.png",
+            "pick": false
+        },
+        "馬櫻丹": {
+            "detail": "馬櫻丹是一種常見於熱帶地區的觀賞植物，花色豐富，對蝴蝶和蜂類有強吸引力。",
+            "image":"Assets/植物/有毒/馬櫻丹.png",
+            "pick": false
+        },
+        "紫藤": {
+            "detail": "紫藤是一種攀爬植物，花朵成串垂懸，常見於庭園設計中，象徵浪漫與思念。",
+            "image":"Assets/植物/有毒/紫藤.png",
+            "pick": false
+        },
+        "黃金葛": {
+            "detail": "黃金葛是一種耐陰性強的觀賞植物，葉片為亮麗的黃綠相間，適合室內綠化。",
+            "image":"Assets/植物/有毒/黃金葛.png",
+            "pick": false
+        },
+        "韭蘭": {
+            "detail": "懶毛氈是一種地被植物，葉片柔軟且密集，常用於園藝地面覆蓋。",
+            "image":"Assets/植物/有毒/韭蘭.png",
+            "pick": false
+        },
+        "聖誕紅": {
+            "detail": "聖誕紅以鮮紅色苞片著稱，是聖誕節和新年期間的代表性植物，象徵節慶喜悅。",
+            "image":"Assets/植物/有毒/聖誕紅.png",
+            "pick": false
+        }
+    },
+
+    "Enemy":{
+        "福壽螺":{
+            "detail":"123",
+            "image":"Assets/Mob/福壽螺/icon.png",
+            "alive":true
+        },
+        "班腿樹蛙":{
+            "detail":"",
+            "image":"Assets/Mob/班腿樹蛙/icon.png",
+            "alive":true
+        },
+        "綠水龍":{
+            "detail":"",
+            "image":"Assets/Mob/綠水龍/icon.png",
+            "alive":true
+        },
+        "沙氏變色蜥":{
+            "detail":"",
+            "image":"Assets/Mob/沙氏變色蜥/icon.png",
+            "alive":true
+        }
+    }
+}
