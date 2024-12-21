@@ -20,7 +20,7 @@ public class EnemyLeft : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         // 更新文字內容顯示剩餘敵人數量
-        enemyCountText.text = "Enemies Left: " + enemies.Length;
+        enemyCountText.text = ":" + enemies.Length;
 
         // 如果敵人數量為 0，切換到目標場景
         if (enemies.Length == 0)
