@@ -1,16 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [Header("���ݩ�")]
+    [Header("血量")]
     public float MaxHP;
 
     public float CurrentHP;
 
-    [Header("���˵L�İѼ�")]
+    [Header("受傷無敵參數")]
     public float InVulnerableDuration;
     private float InVulnerableCounter;
     public bool InVulnerable;
@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
 
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
+
+    public UnityEvent<Character> OnHeal;
     public void Start()
     {
         CurrentHP = MaxHP;

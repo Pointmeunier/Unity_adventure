@@ -169,6 +169,10 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(dir * HurtForce,ForceMode2D.Impulse);
       
     }
+
+
+
+
     public void Dead()
     {
         isDead = true;
