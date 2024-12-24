@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     public bool isDead;
     public bool isAttack;
+
+    private bool isMoving = false;
+    private float moveDirection = 0f;
+
     private void Awake()
     {
         physicscheck = GetComponent<PhysicsCheck>();
@@ -71,7 +75,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        inputDirection = inputControll.GamePlayer.Move.ReadValue<Vector2>();
+        if (isMoving)
+        {
+            inputDirection.x = moveDirection;
+        }
+        else
+        {
+            inputDirection = inputControll.GamePlayer.Move.ReadValue<Vector2>(); // 停止移動
+        }
         CheckState();
     }
 
@@ -81,8 +92,6 @@ public class PlayerController : MonoBehaviour
         {
             Move();
         }
-
-
     }
 
         public void Move()
@@ -99,10 +108,38 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(faceDir,1,1);
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    public void OnMoveLeft(bool isPressed)
+    {
+        isMoving = isPressed; // 當按下按鈕時設置為移動狀態
+        moveDirection = isPressed ? -1 : 0; // 設置方向為左
+    }
+
+    public void OnMoveRight(bool isPressed)
+    {
+        isMoving = isPressed; // 當按下按鈕時設置為移動狀態
+        moveDirection = isPressed ? 1 : 0; // 設置方向為右
+    }
+
+
+    public void onJump()
+        {
+            if (physicscheck.isGround)
+            rb.AddForce(transform.up*JumpForce,ForceMode2D.Impulse);
+        }
+
+    public void Jump(InputAction.CallbackContext context)
     {
         if (physicscheck.isGround)
         rb.AddForce(transform.up*JumpForce,ForceMode2D.Impulse);
+    }
+
+    public void onPlayerAttack()
+    {
+        if (physicscheck.isGround)
+        {
+            playerAnimation.PlayAttack();
+            isAttack = true;
+        }
     }
 
     private void PlayerAttack(InputAction.CallbackContext context)
