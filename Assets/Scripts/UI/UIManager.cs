@@ -6,7 +6,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public PlayerStatusBar playerStatusBar;
-    [Header("監聽血量減少")]
+    [Header("監聽血量變化")]
     public CharecterEventSo HealthEvent;
 
     //訂閱事件
