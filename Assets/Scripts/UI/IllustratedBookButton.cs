@@ -24,6 +24,19 @@ public class IllustratedBookButton : MonoBehaviour
 
     void Start()
     {
+
+        string originalFilePath = "./Assets/Resources/Data.json";
+        string backupFilePath = "./Assets/Resources/Data_backup.json";
+
+        // 檢查備份檔案是否存在，若不存在則創建
+        if (!File.Exists(backupFilePath))
+        {
+            File.Copy(originalFilePath, backupFilePath);
+        }
+
+        // 每次遊戲重啟，使用備份檔案覆蓋原始檔案
+        File.Copy(backupFilePath, originalFilePath, true);
+
         // 動態尋找子物件
         if (PlantBook != null)
         {

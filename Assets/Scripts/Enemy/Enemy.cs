@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     PhysicsCheck physicsCheck;
 
-    [Header("³t«×°Ñ¼Æ")]
+    [Header("ï¿½tï¿½×°Ñ¼ï¿½")]
     public float NormalSpeed;
     public float CurrentSpeed;
 
@@ -19,17 +21,17 @@ public class Enemy : MonoBehaviour
 
     public Transform attacker;
 
-    [Header("¸gÅç­È")]
+    [Header("ï¿½gï¿½ï¿½ï¿½")]
     public float Exp;
 
-    [Header("ª¬ºA")]
+    [Header("ï¿½ï¿½ï¿½A")]
     public bool isHurt;
     public bool isDead;
 
-    [Header("¹Ï¤ùªì©l­±¦V")]
-    public bool IsFacingRight; // true ªí¥Üªì©l­±¦V¥k
+    [Header("ï¿½Ï¤ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½V")]
+    public bool IsFacingRight; // true ï¿½ï¿½ï¿½Üªï¿½lï¿½ï¿½ï¿½Vï¿½k
 
-    // Â½Âà§N«o®É¶¡
+    // Â½ï¿½ï¿½Nï¿½oï¿½É¶ï¿½
     private float flipCooldown = 1f;
     private float lastFlipTime;
 
@@ -43,12 +45,12 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        // ®Ú¾Ú¬O§_ªì©l­±¦V¥k¨Ó­pºâ FaceDir
+        // ï¿½Ú¾Ú¬Oï¿½_ï¿½ï¿½lï¿½ï¿½ï¿½Vï¿½kï¿½Ó­pï¿½ï¿½ FaceDir
         FaceDir = IsFacingRight
             ? new Vector3(transform.localScale.x, 0, 0)
             : new Vector3(-transform.localScale.x, 0, 0);
 
-        // ©Çª«¼²Àð«áÂ½Âà¡A¦ý¥[¤J§N«o­­¨î
+        // ï¿½Çªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½Jï¿½Nï¿½oï¿½ï¿½ï¿½ï¿½
         if ((physicsCheck.touchLeftWall || physicsCheck.touchRightWall) && Time.time - lastFlipTime > flipCooldown)
         {
             Flip();
@@ -71,24 +73,24 @@ public class Enemy : MonoBehaviour
 
     protected void Flip()
     {
-        // Â½Âà©Çª«¤è¦V
+        // Â½ï¿½ï¿½Çªï¿½ï¿½ï¿½V
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
     public void OnTakeDamage(Transform attackerTrans)
     {
         attacker = attackerTrans;
 
-        // ­pºâ§ðÀ»ªÌ»P©Çª«¤§¶¡ªº¬Û¹ï¦ì¸m¡A¨Ã®Ú¾Ú¦ì¸mÂ½Âà©Çª«
+        // ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì»Pï¿½Çªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½ï¿½mï¿½Aï¿½Ã®Ú¾Ú¦ï¿½mÂ½ï¿½ï¿½Çªï¿½
         if (attackerTrans.position.x - transform.position.x > 0)
         {
-            Flip(); // ¦pªG§ðÀ»ªÌ¦b©Çª«¥kÃä¡AÂ½Âà©Çª«
+            Flip(); // ï¿½pï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½Ì¦bï¿½Çªï¿½ï¿½kï¿½ï¿½AÂ½ï¿½ï¿½Çªï¿½
         }
         if (attackerTrans.position.x - transform.position.x < 0)
         {
-            Flip(); // ¦pªG§ðÀ»ªÌ¦b©Çª«¥ªÃä¡AÂ½Âà©Çª«
+            Flip(); // ï¿½pï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½Ì¦bï¿½Çªï¿½ï¿½ï¿½ï¿½ï¿½AÂ½ï¿½ï¿½Çªï¿½
         }
 
-        // Åã¥Ü¨ü¶Ë°Êµe
+        // ï¿½ï¿½Ü¨ï¿½ï¿½Ë°Êµe
         isHurt = true;
         ani.SetTrigger("Hurt");
 
@@ -111,6 +113,19 @@ public class Enemy : MonoBehaviour
         gameObject.layer = 2;
         ani.SetBool("Dead", true);
         isDead = true;
+        string filePath = "./Assets/Resources/Data.json";
+        string jsonData = File.ReadAllText(filePath);
+        JObject jsonObject = JObject.Parse(jsonData);
+        string monsterName = ani.name;
+
+        // å˜—è©¦æ‰¾åˆ°åŒ¹é…çš„æ€ªç‰©
+        if (jsonObject["Enemy"]?[monsterName] != null)
+        {
+            jsonObject["Enemy"][monsterName]["alive"] = false;
+        }
+        File.WriteAllText(filePath, jsonObject.ToString());
+
+        Debug.Log(monsterName + "ä¿®æ”¹å®Œæˆ");
     }
 
     public void DestroyEnemy()
