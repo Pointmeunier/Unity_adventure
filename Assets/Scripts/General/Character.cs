@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [Header("°ò¥»ÄÝ©Ê")]
+    [Header("ï¿½ï¿½ï¿½Ý©ï¿½")]
     public float MaxHP;
 
     public float CurrentHP;
 
-    [Header("¨ü¶ËµL¼Ä°Ñ¼Æ")]
+    [Header("ï¿½ï¿½ï¿½ËµLï¿½Ä°Ñ¼ï¿½")]
     public float InVulnerableDuration;
     private float InVulnerableCounter;
     public bool InVulnerable;
@@ -33,15 +33,29 @@ public class Character : MonoBehaviour
             InVulnerable = false;
         }
     }
+    public void RestoreHealth(float amount)
+    {
+        // å¢žåŠ å½“å‰è¡€é‡
+        CurrentHP += amount;
+
+        // ç¡®ä¿å½“å‰è¡€é‡ä¸è¶…è¿‡æœ€å¤§è¡€é‡
+        if (CurrentHP > MaxHP)
+        {
+            CurrentHP = MaxHP;
+        }
+
+        Debug.Log("è£œè¡€:"+amount);
+        Debug.Log($"ç›®å‰è¡€é‡ï¼š{CurrentHP}/{MaxHP}");
+    }
 
 
     public void TakeDamage(Attack attacker)
     {
-        //µL¼Äª¬ºA³¡¨ü¶Ë ª½±µ¦^¶Ç
+        //ï¿½Lï¿½Äªï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½
         if (InVulnerable)
             return;
 
-        //·í«e¦å¶q-¼Ä¤H¶Ë®`>0 ¨ü¨ì¶Ë®`¨Ã¶i¤JµL¼Ä´V
+        //ï¿½ï¿½ï¿½eï¿½ï¿½q-ï¿½Ä¤Hï¿½Ë®`>0 ï¿½ï¿½ï¿½ï¿½Ë®`ï¿½Ã¶iï¿½Jï¿½Lï¿½Ä´V
         if (CurrentHP - attacker.damage > 0)
         {
             CurrentHP -= attacker.damage;
@@ -49,7 +63,7 @@ public class Character : MonoBehaviour
 
             OnTakeDamage?.Invoke(attacker.transform);
         }
-        //·í«e¦å¶q-¼Ä¤H¶Ë®`<=0 ¦º¤`
+        //ï¿½ï¿½ï¿½eï¿½ï¿½q-ï¿½Ä¤Hï¿½Ë®`<=0 ï¿½ï¿½ï¿½`
         else
         {
             CurrentHP = 0;
@@ -59,7 +73,7 @@ public class Character : MonoBehaviour
         OnHealthChange?.Invoke(this);
     }
     
-    //§PÂ_¨ü¶ËµL¼Ä
+    //ï¿½Pï¿½_ï¿½ï¿½ï¿½ËµLï¿½ï¿½
     public void TriggerInvulneraber()
     {
         if (!InVulnerable)
