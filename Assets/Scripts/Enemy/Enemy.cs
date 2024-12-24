@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
 
     [Header("速度參數")]
     public float NormalSpeed;
-    public float ChaseSpeed;
     public float CurrentSpeed;
 
 
@@ -42,7 +41,7 @@ public class Enemy : MonoBehaviour
         CurrentSpeed = NormalSpeed;
     }
 
-    private void Update()
+    public void Update()
     {
         // 根據是否初始面向右來計算 FaceDir
         FaceDir = IsFacingRight

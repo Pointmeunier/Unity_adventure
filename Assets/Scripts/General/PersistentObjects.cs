@@ -2,18 +2,27 @@ using UnityEngine;
 
 public class PersistentObjects : MonoBehaviour
 {
-    public GameObject player; // ���a����
-    public GameObject canvas; // �e��
+    [Header("玩家")]
+    public GameObject player;
+    [Header("UI")]
+    public GameObject canvas;
+    [Header("不摧毀物件的管理員")]
     public GameObject DontDestroyObj;
+    [Header("轉場")]
     public GameObject ScemeLoadEffect;
+    [Header("音效相關")]
+    public GameObject AudioManager;
+    public GameObject BGM;
+
 
     private void Start()
     {
-        // �]�m���a�M�e�����H���������ӾP��
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(canvas);
-        DontDestroyOnLoad(DontDestroyObj);//�޲z���󤣳Q�R���������󥻨�
+        DontDestroyOnLoad(DontDestroyObj);
         DontDestroyOnLoad(ScemeLoadEffect);
+        DontDestroyOnLoad(AudioManager);
+        DontDestroyOnLoad(BGM);
 
     }
 }
