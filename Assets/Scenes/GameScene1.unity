@@ -9192,7 +9192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e07d8673c9fc084abdc9e324f158f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 1000
+  MaxHP: 100000
   CurrentHP: 0
   InVulnerableDuration: 1
   InVulnerable: 0
@@ -9415,7 +9415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744728175354317792, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8245874797798659155, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: MaxHP
@@ -11373,7 +11373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744728175354317792, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8245874797798659155, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: MaxHP
@@ -11488,12 +11488,13 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -14.884803, y: 14.687304}
-      - {x: 25.800478, y: 15.037273}
-      - {x: 25.73384, y: 5.479557}
-      - {x: 25.71623, y: -2.8793118}
-      - {x: 25.64799, y: -5.7850842}
-      - {x: 25.571898, y: -7.452068}
-      - {x: -14.556019, y: -7.338606}
+      - {x: 28.314833, y: 17.315908}
+      - {x: 28.09105, y: 5.5581307}
+      - {x: 28.073439, y: -2.5650175}
+      - {x: 28.790932, y: -5.7850842}
+      - {x: 28.163908, y: -8.0055065}
+      - {x: 28.793413, y: -9.180687}
+      - {x: -16.75608, y: -8.281488}
   m_UseDelaunayMesh: 0
 --- !u!4 &882875939
 Transform:
@@ -12005,7 +12006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744728175354317792, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8245874797798659155, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: MaxHP
@@ -12188,7 +12189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744728175354317792, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8245874797798659155, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: MaxHP
@@ -13215,7 +13216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744728175354317792, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8245874797798659155, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: MaxHP
@@ -13771,7 +13772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744728175354317792, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8245874797798659155, guid: 288dd06c350eed3429348a64f6a0f044, type: 3}
       propertyPath: MaxHP

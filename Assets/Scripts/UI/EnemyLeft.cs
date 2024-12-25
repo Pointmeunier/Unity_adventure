@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement; // 引入場景管理命名空間
 public class EnemyLeft : MonoBehaviour
 {
     public TMP_Text enemyCountText; // TextMeshPro 文字 UI 元件
-    private string[] sceneNames = { "GameScene2", "GameScene3", "GameScene4" }; // 預設的場景列表
+    private string[] sceneNames = { "GameScene2", "GameScene3","BossScene","ClearScene"}; // 預設的場景列表
     private int currentSceneIndex; // 當前場景索引
     private GameObject player; // 玩家物件
 
