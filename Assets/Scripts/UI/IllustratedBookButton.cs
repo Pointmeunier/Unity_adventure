@@ -75,6 +75,10 @@ public class IllustratedBookButton : MonoBehaviour
 
     public void BookOpen(GameObject targetBook)
     {
+        Color color = PlantImage.color;
+        color.a = 0f;
+        PlantImage.color = color;
+        EnemyImage.color = color;
         // 開啟目標圖鑑並加載內容
         if (targetBook == PlantBook)
         {
@@ -146,6 +150,9 @@ public class IllustratedBookButton : MonoBehaviour
                     newButton.GetComponent<Button>().onClick.AddListener(() =>
                     {
                         PlantImage.sprite = plantSprite;
+                        Color color = PlantImage.color;
+                        color.a = 255f;
+                        PlantImage.color = color;
                         PlantName.text = plantName;
                         PlantDetail.text = plantData["detail"].ToString();
                     });
@@ -182,6 +189,9 @@ public class IllustratedBookButton : MonoBehaviour
                     newButton.GetComponent<Button>().onClick.AddListener(() =>
                     {
                         EnemyImage.sprite = enemySprite;
+                        Color color = EnemyImage.color;
+                        color.a = 255f;
+                        EnemyImage.color = color;
                         EnemyName.text = enemyName;
                         EnemyDetail.text = enemyData["detail"].ToString();
                     });

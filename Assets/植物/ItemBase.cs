@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 public class ItemBase : MonoBehaviour
 {
@@ -26,7 +28,23 @@ public class ItemBase : MonoBehaviour
 
     public void ApplyEffect(PlayerController player)
     {
-        
+
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null && spriteRenderer.sprite != null)
+        {
+            string spriteName = spriteRenderer.sprite.name;
+            Debug.Log($"物品的 Sprite 名稱是: {spriteName}");
+            string filePath = "./Assets/Resources/Data.json";
+            string jsonData = File.ReadAllText(filePath);
+            JObject jsonObject = JObject.Parse(jsonData);
+
+            // 嘗試找到匹配的怪物
+            if (jsonObject["Plant"]?[spriteName] != null)
+            {
+                jsonObject["Plant"][spriteName]["pick"] = true;
+            }
+            File.WriteAllText(filePath, jsonObject.ToString());
+        }
 
         switch (itemType)
         {
@@ -78,7 +96,5 @@ public class ItemBase : MonoBehaviour
                 
                 break;
         }
-
-        
     }
 }

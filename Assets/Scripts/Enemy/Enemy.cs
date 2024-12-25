@@ -124,8 +124,6 @@ public class Enemy : MonoBehaviour
             jsonObject["Enemy"][monsterName]["alive"] = false;
         }
         File.WriteAllText(filePath, jsonObject.ToString());
-
-        Debug.Log(monsterName + "修改完成");
     }
 
     public void DestroyEnemy()
