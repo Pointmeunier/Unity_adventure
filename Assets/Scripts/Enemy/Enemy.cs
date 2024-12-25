@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 public class Enemy : MonoBehaviour
 {
@@ -116,7 +117,7 @@ public class Enemy : MonoBehaviour
         string filePath = "./Assets/Resources/Data.json";
         string jsonData = File.ReadAllText(filePath);
         JObject jsonObject = JObject.Parse(jsonData);
-        string monsterName = ani.name;
+        string monsterName = Regex.Replace(ani.name, @"\s\(\d+\)$", "");
 
         // 嘗試找到匹配的怪物
         if (jsonObject["Enemy"]?[monsterName] != null)
