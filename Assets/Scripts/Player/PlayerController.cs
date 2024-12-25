@@ -161,15 +161,50 @@ public class PlayerController : MonoBehaviour
                 Debug.Log($"目前第{i + 1}段攻擊力：{attackComponents[i].damage}");
             }
     }
+    public void DecreaseAttack(int amount)
+    {
+        for (int i = 0; i < attackComponents.Length; i++)
+            {
+                attackComponents[i].damage -= amount; // 修改每个 Attack 的伤害值
+                Debug.Log($"目前第{i + 1}段攻擊力：{attackComponents[i].damage}");
+            }
+    }
 
     public void RestoreHealth(float amount)
     {
         character.RestoreHealth(amount); // use Character 
     }
+
+    public void RestoreHealthtenpercent(float amount)
+    {
+        character.RestoreHealthtenpercent(amount); // use Character 
+    }
+    public void Healthreducepercent(float amount)
+    {
+        character.Healthreducepercent(amount); // use Character 
+    }
+
+    public void Healthreduce(float amount)
+    {
+        character.Healthreduce(amount); // use Character 
+    }
+
+
+
+
     public void BoostSpeed(float multiplier)
     {
         Speed *= multiplier;
         Debug.Log("速度提升，目前速度: " + Speed);
+
+        // 恢复速度（例如3秒后恢复）
+        Invoke(nameof(ResetSpeed), 3f);
+    }
+    //減速3秒
+    public void SpeedReduce(float multiplier)
+    {
+        Speed *= multiplier;
+        Debug.Log("速度減半，目前速度: " + Speed);
 
         // 恢复速度（例如3秒后恢复）
         Invoke(nameof(ResetSpeed), 3f);
@@ -180,7 +215,7 @@ public class PlayerController : MonoBehaviour
         Speed = defaultSpeed;
         Debug.Log("速度恢復，目前速度: " + Speed);
     }
-
+    
     public void BoostJump(float amount)
     {
         JumpForce *= amount;
