@@ -1,12 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour
+public class GameStart : MonoBehaviour
 {
-    // 切換到遊戲的第一個場景
-    public void LoadGameScene()
+    // 設定第一個遊戲場景名稱
+    [SerializeField] private string firstSceneName = "GameScene1";
+
+    // 此方法需要綁定到按鈕的 OnClick 事件
+    public void StartGame()
     {
-        SceneManager.LoadScene("GameScene1"); // 替換 "GameScene" 為你的第一個場景名稱
-        Debug.Log("click");
+        if (!string.IsNullOrEmpty(firstSceneName)) { 
+        
+            SceneManager.LoadScene(firstSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("未設置場景名稱，請在檢視面板中設置第一個場景的名稱！");
+        }
     }
 }
