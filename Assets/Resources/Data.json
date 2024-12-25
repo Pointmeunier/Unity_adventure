@@ -55,7 +55,7 @@
     "班腿樹蛙": {
       "detail": "",
       "image": "Assets/Mob/班腿樹蛙/icon.png",
-      "alive": true
+      "alive": false
     },
     "綠水龍": {
       "detail": "",
