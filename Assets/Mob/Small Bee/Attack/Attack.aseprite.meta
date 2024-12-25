@@ -77,7 +77,6 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -90,7 +89,6 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -210,36 +208,32 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: Attack_Frame_0
       frameIndex: 0
-      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 19
         width: 33
         height: 33
       spriteId: 092ca03b7a8269348a2573caa35eff52
-    - name: Frame_1
+    - name: Attack_Frame_1
       frameIndex: 1
-      additiveSortOrder: 0
       cellRect:
         x: 23
         y: 17
         width: 34
         height: 37
       spriteId: 774ed98635ed20b4a8c91c58e05d4dcf
-    - name: Frame_2
+    - name: Attack_Frame_2
       frameIndex: 2
-      additiveSortOrder: 0
       cellRect:
         x: 22
         y: 17
         width: 37
         height: 38
       spriteId: 031d1f8f7773c904fbb0c9e1a182dca0
-    - name: Frame_3
+    - name: Attack_Frame_3
       frameIndex: 3
-      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 18
@@ -249,7 +243,6 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
-  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}

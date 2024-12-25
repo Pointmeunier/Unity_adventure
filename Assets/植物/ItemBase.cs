@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using UnityEngine.UI;
+
 
 public class ItemBase : MonoBehaviour
 {
+    private Transform EffectPanel;
+
+    void Start(){
+        GameObject panelObject = GameObject.Find("EffectPanel");
+        EffectPanel = panelObject.transform;
+    }
+
     public enum ItemType
     {
         AttackBoost,  // 增加攻击力
@@ -46,55 +55,98 @@ public class ItemBase : MonoBehaviour
             File.WriteAllText(filePath, jsonObject.ToString());
         }
 
+
+        GameObject effectPrefab = Resources.Load<GameObject>("EffectImagePrefab");
+        if (effectPrefab == null)
+            {
+                Debug.LogError("無法加載 EffectImagePrefab");
+            }
+        GameObject newEffect = Instantiate(effectPrefab, EffectPanel);
+        Sprite EffectSprite;
+
         switch (itemType)
         {
             case ItemType.AttackBoost:
                 player.IncreaseAttack(5);
+                EffectSprite = LoadSprite("Assets/Effect/attack_boost.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
                 // 销毁物品
                 Destroy(gameObject);
                 break;
             case ItemType.Attackreduce:
                 player.DecreaseAttack(5);
+                EffectSprite = LoadSprite("Assets/Effect/attack_down.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
                 // 销毁物品
                 Destroy(gameObject);
                 break;
             case ItemType.HealthRestore:
                 player.RestoreHealth(50f);
+                EffectSprite = LoadSprite("Assets/Effect/regeneration.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
                 // 销毁物品
                 Destroy(gameObject);
                 break;
             //10趴血
             case ItemType.HealthRestore10percent:
                 player.RestoreHealthtenpercent(1.1f);
+                EffectSprite = LoadSprite("Assets/Effect/regeneration.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
                 // 销毁物品
                 Destroy(gameObject);
                 break;
             //扣一半血
             case ItemType.Healthreducepercent:
                 player.Healthreducepercent(0.5f);
+                EffectSprite = LoadSprite("Assets/Effect/bleeding.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
                 // 销毁物品
                 Destroy(gameObject);
                 break;
                 //扣50血
             case ItemType.Healthreduce:
                 player.Healthreduce(50f);
+                EffectSprite = LoadSprite("Assets/Effect/bleeding.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
                 // 销毁物品
                 Destroy(gameObject);
                 break;
             
             case ItemType.SpeedBoost:
                 player.BoostSpeed(1.5f); // 速度每次提升50%3秒
+                EffectSprite = LoadSprite("Assets/Effect/swiftness.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 3f);
                 
                 break;
             //減速
             case ItemType.SpeedReduce:
                 player.SpeedReduce(0.5f);  
+                EffectSprite = LoadSprite("Assets/Effect/slowed.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 3f);
                 
                 break;
             case ItemType.JumpBoost:
                 player.BoostJump(1.3f); // 每次提升30%
+                EffectSprite = LoadSprite("Assets/Effect/jump_boost.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 5f);
                 
                 break;
         }
+    }
+
+    private Sprite LoadSprite(string path)
+    {
+        Texture2D texture = new Texture2D(2, 2);
+        texture.LoadImage(File.ReadAllBytes(path));
+        return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
     }
 }
