@@ -16,5 +16,11 @@ EditorBuildSettings:
     guid: 88d337907e9aa6e47a4575dc16be2c06
   - enabled: 1
     path: Assets/Scenes/GameScene3.unity
+    guid: afbe24e7f79a0f5449016b5c1f161b9c
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: 009b965fdc5c8454aa93e1639f001e3f
+  - enabled: 1
+    path: Assets/Scenes/ClearScene.unity
     guid: 51ef8e58aa2a74d4f81619d8041983f5
   m_configObjects: {}
