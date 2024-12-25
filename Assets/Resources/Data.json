@@ -65,7 +65,7 @@
     "沙氏變色蜥": {
       "detail": "",
       "image": "Assets/Mob/沙氏變色蜥/icon.png",
-      "alive": true
+      "alive": false
     }
   }
 }
