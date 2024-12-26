@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class BGMManager : MonoBehaviour
 {
-
     public string bossSceneName = "BossScene"; // Boss 關卡的場景名稱
+    public string clearSceneName = "ClearScene"; // 通關場景的名稱
     public GameObject bgmObject; // 需要控制的子物件
+
     private bool hasReactivated = false; // 用於追蹤是否已重新啟用子物件
     private AudioManager audioManager;
-
 
     void Start()
     {
@@ -43,6 +43,7 @@ public class BGMManager : MonoBehaviour
             Debug.Log("BGM 子物件已重新啟用");
         }
     }
+
     private void OnDestroy()
     {
         // 取消訂閱場景加載事件以防止記憶體洩漏
@@ -51,12 +52,12 @@ public class BGMManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == bossSceneName)
+        if (scene.name == bossSceneName || scene.name == clearSceneName)
         {
             if (audioManager != null && audioManager.BGM != null)
             {
                 audioManager.BGM.volume = 0; // 將 BGM 的音量設為 0
-                Debug.Log("已進入 BossScene，普通 BGM 音量設為 0");
+                Debug.Log($"已進入 {scene.name}，普通 BGM 音量設為 0");
             }
         }
         else
@@ -64,9 +65,8 @@ public class BGMManager : MonoBehaviour
             if (audioManager != null && audioManager.BGM != null)
             {
                 audioManager.BGM.volume = 0.205f; // 恢復普通場景的 BGM 音量
-                Debug.Log("離開 BossScene，恢復普通 BGM 音量");
+                Debug.Log($"離開特殊場景 {scene.name}，恢復普通 BGM 音量");
             }
         }
     }
-
 }
