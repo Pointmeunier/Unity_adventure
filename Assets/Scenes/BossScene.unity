@@ -255,7 +255,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.205
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7694,6 +7694,14 @@ PrefabInstance:
     - target: {fileID: 650466779715873838, guid: 3869f001b6f50fc448f4ffae4d775941, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 962860382313054189, guid: 3869f001b6f50fc448f4ffae4d775941, type: 3}
+      propertyPath: MaxHP
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 962860382313054189, guid: 3869f001b6f50fc448f4ffae4d775941, type: 3}
+      propertyPath: InVulnerableDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2537140371952068074, guid: 3869f001b6f50fc448f4ffae4d775941, type: 3}
       propertyPath: m_Name

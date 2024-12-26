@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e07d8673c9fc084abdc9e324f158f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 50
+  MaxHP: 35
   CurrentHP: 0
   InVulnerableDuration: 0.5
   InVulnerable: 0
@@ -269,6 +269,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1595021841101140933
 MonoBehaviour:
   m_ObjectHideFlags: 0
