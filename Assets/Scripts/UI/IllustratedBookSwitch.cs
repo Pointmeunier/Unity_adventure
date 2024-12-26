@@ -18,4 +18,12 @@ public class IllustratedBookSwitch : MonoBehaviour
             BookButtonScript.BookOpen(OtherBook);
         }
     }
+
+    public void PanelClose()
+    {
+    
+        BookButtonScript.ClearCurrentBook(CurrentBook);
+        CurrentBook.SetActive(false);
+
+    }
 }

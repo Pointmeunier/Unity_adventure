@@ -78,7 +78,11 @@ public class IllustratedBookButton : MonoBehaviour
         Color color = PlantImage.color;
         color.a = 0f;
         PlantImage.color = color;
+        PlantName.text = "";
+        PlantDetail.text = "";
         EnemyImage.color = color;
+        EnemyName.text = "";
+        EnemyDetail.text = "";
 
         // 開啟目標圖鑑並加載內容
         if (targetBook == PlantBook)
