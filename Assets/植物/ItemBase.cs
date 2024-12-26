@@ -10,10 +10,13 @@ public class ItemBase : MonoBehaviour
 {
     private Transform EffectPanel;
 
-    void Start(){
-        GameObject panelObject = GameObject.Find("EffectPanel");
-        EffectPanel = panelObject.transform;
-    }
+void Start()
+{
+    GameObject panelObject = GameObject.Find("EffectPanel");
+    EffectPanel = panelObject.transform;
+
+    playerController = FindObjectOfType<PlayerController>(); // 獲取玩家控制器
+}
 
     public enum ItemType
     {
@@ -38,10 +41,6 @@ public class ItemBase : MonoBehaviour
     public AudioClip boostSound;  // 增益音效
     public AudioClip debuffSound; // 減益音效
     private PlayerController playerController;
-    private void Start()
-    {
-        playerController = FindObjectOfType<PlayerController>(); // 獲取玩家控制器
-    }
 
     public void ApplyEffect(PlayerController player)
     {
