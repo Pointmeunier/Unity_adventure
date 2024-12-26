@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 3
+  boostSound: {fileID: 8300000, guid: 8862fa0d9f1210c4da2f753368e2c09a, type: 3}
+  debuffSound: {fileID: 8300000, guid: ba98d26ec74d12a4790bbb3115382d34, type: 3}
 --- !u!61 &4944426213391394883
 BoxCollider2D:
   m_ObjectHideFlags: 0

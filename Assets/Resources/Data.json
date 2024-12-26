@@ -28,7 +28,7 @@
     "紫藤": {
       "detail": "紫藤是一種攀爬植物，花朵成串垂懸，常見於庭園設計中，象徵浪漫與思念。",
       "image": "Assets/植物/有毒/紫藤.png",
-      "pick": false
+      "pick": true
     },
     "黃金葛": {
       "detail": "黃金葛是一種耐陰性強的觀賞植物，葉片為亮麗的黃綠相間，適合室內綠化。",
@@ -55,7 +55,7 @@
     "班腿樹蛙": {
       "detail": "",
       "image": "Assets/Mob/班腿樹蛙/icon.png",
-      "alive": false
+      "alive": true
     },
     "綠水龍": {
       "detail": "",
@@ -65,7 +65,7 @@
     "沙氏變色蜥": {
       "detail": "",
       "image": "Assets/Mob/沙氏變色蜥/icon.png",
-      "alive": true
+      "alive": false
     }
   }
 }
