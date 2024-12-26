@@ -104,51 +104,52 @@ public class ItemBase : MonoBehaviour
             //10趴血
             case ItemType.HealthRestore10percent:
                 player.RestoreHealthtenpercent(1.1f);
-<<<<<<< Updated upstream
+
                 player.PlayBoostSound();  // 播放增益音效
-=======
-<<<<<<< HEAD
-                player.PlayBoostSound();  // 播放增益音效
-=======
+
                 EffectSprite = LoadSprite("Assets/Effect/regeneration.png");
                 newEffect.GetComponent<Image>().sprite = EffectSprite;
                 Destroy(newEffect, 2f);
->>>>>>> 23ac784efd47820683cc5afdce2a47cbdc99282f
->>>>>>> Stashed changes
+
+
+
+                EffectSprite = LoadSprite("Assets/Effect/regeneration.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+                Destroy(newEffect, 2f);
+
                 // 销毁物品
                 Destroy(gameObject);
                 break;
             //扣一半血
             case ItemType.Healthreducepercent:
-                player.Healthreducepercent(0.5f);
-<<<<<<< Updated upstream
-                player.PlayDebuffSound();  // 播放減益音效
-=======
-<<<<<<< HEAD
-                player.PlayDebuffSound();  // 播放減益音效
-=======
+               player.Healthreducepercent(0.5f);
+              player.PlayDebuffSound();  // 播放減益音效
+              EffectSprite = LoadSprite("Assets/Effect/bleeding.png");
+              newEffect.GetComponent<Image>().sprite = EffectSprite;
+              Destroy(newEffect, 2f);
+
                 EffectSprite = LoadSprite("Assets/Effect/bleeding.png");
                 newEffect.GetComponent<Image>().sprite = EffectSprite;
                 Destroy(newEffect, 2f);
->>>>>>> 23ac784efd47820683cc5afdce2a47cbdc99282f
->>>>>>> Stashed changes
+
                 // 销毁物品
                 Destroy(gameObject);
                 break;
                 //扣50血
             case ItemType.Healthreduce:
                 player.Healthreduce(50f);
-<<<<<<< Updated upstream
+
                 player.PlayDebuffSound();  // 播放減益音效
-=======
-<<<<<<< HEAD
-                player.PlayDebuffSound();  // 播放減益音效
-=======
+
                 EffectSprite = LoadSprite("Assets/Effect/bleeding.png");
                 newEffect.GetComponent<Image>().sprite = EffectSprite;
                 Destroy(newEffect, 2f);
->>>>>>> 23ac784efd47820683cc5afdce2a47cbdc99282f
->>>>>>> Stashed changes
+
+
+
+                EffectSprite = LoadSprite("Assets/Effect/bleeding.png");
+                newEffect.GetComponent<Image>().sprite = EffectSprite;
+
                 // 销毁物品
                 Destroy(gameObject);
                 break;
@@ -175,10 +176,11 @@ public class ItemBase : MonoBehaviour
                 EffectSprite = LoadSprite("Assets/Effect/jump_boost.png");
                 newEffect.GetComponent<Image>().sprite = EffectSprite;
                 Destroy(newEffect, 5f);
+
                 
                 player.PlayBoostSound();  // 播放增益音效
                 
-                player.PlayBoostSound();  // 播放增益音效
+
                 
                 break;
         }
