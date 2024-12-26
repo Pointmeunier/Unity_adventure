@@ -345,8 +345,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
-  m_sharedMaterial: {fileID: -3853082282543502775, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77c07466522d76b408661d478b3229e2, type: 2}
+  m_sharedMaterial: {fileID: 6184978609131429620, guid: 77c07466522d76b408661d478b3229e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -867,7 +867,7 @@ MonoBehaviour:
   PlantBook: {fileID: 356426302}
   EnemyBook: {fileID: 278580074}
   ButtonPrefab: {fileID: 1155700374320512800, guid: f005404d52c750940bf8fd356d4711c1, type: 3}
-  font: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  font: {fileID: 11400000, guid: 77c07466522d76b408661d478b3229e2, type: 2}
 --- !u!1001 &199493421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8759,8 +8759,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
-  m_sharedMaterial: {fileID: -3853082282543502775, guid: bf09bae030ac2434ea85123b9a965be9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77c07466522d76b408661d478b3229e2, type: 2}
+  m_sharedMaterial: {fileID: 6184978609131429620, guid: 77c07466522d76b408661d478b3229e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10102,8 +10102,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6BD2\u6027:"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77c07466522d76b408661d478b3229e2, type: 2}
+  m_sharedMaterial: {fileID: 6184978609131429620, guid: 77c07466522d76b408661d478b3229e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using Newtonsoft.Json;
+using LitJson; // Import LitJson namespace
 using TMPro;
 
 public class IllustratedBookButton : MonoBehaviour
@@ -20,11 +20,10 @@ public class IllustratedBookButton : MonoBehaviour
     private TMP_Text EnemyDetail; // 圖鑑細節顯示
     public GameObject ButtonPrefab; // 按鈕預製件
     public TMP_FontAsset font;
-    private Dictionary<string, object> jsonData;
-
+    private JsonData jsonData; // Change the data type to LitJson's JsonData
+    
     void Start()
     {
-
         string originalFilePath = "./Assets/Resources/Data.json";
         string backupFilePath = "./Assets/Resources/Data_backup.json";
 
@@ -60,7 +59,8 @@ public class IllustratedBookButton : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame){
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
             ClearCurrentBook(PlantBook);
             ClearCurrentBook(EnemyBook);
             PlantBook.SetActive(false);
@@ -79,6 +79,7 @@ public class IllustratedBookButton : MonoBehaviour
         color.a = 0f;
         PlantImage.color = color;
         EnemyImage.color = color;
+
         // 開啟目標圖鑑並加載內容
         if (targetBook == PlantBook)
         {
@@ -114,29 +115,28 @@ public class IllustratedBookButton : MonoBehaviour
     private void LoadJsonData()
     {
         string path = Path.Combine(Application.dataPath, "./Resources/Data.json");
+
         if (File.Exists(path))
         {
-            string jsonString = File.ReadAllText(path);
-            jsonData = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonString);
+            // 使用 UTF-8 編碼讀取檔案
+            string jsonString = File.ReadAllText(path, System.Text.Encoding.UTF8);
+            jsonData = JsonMapper.ToObject(jsonString); // 使用 LitJson 的 ToObject 方法
         }
-    
     }
 
     private void PopulatePlantBook()
     {
         LoadJsonData();
 
-        if (jsonData != null && jsonData.ContainsKey("Plant"))
+        if (jsonData != null && jsonData.Keys.Contains("Plant"))
         {
-            
-            Dictionary<string, Dictionary<string, object>> plants = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, object>>>(jsonData["Plant"].ToString());
-
-            foreach (var plant in plants)
+            JsonData plants = jsonData["Plant"];
+            foreach (var plantKey in plants.Keys)
             {
-                string plantName = plant.Key;
-                var plantData = plant.Value;
+                JsonData plantData = plants[plantKey];
+                string plantName = plantKey;
 
-                if (plantData.ContainsKey("pick") && (bool)plantData["pick"])
+                if ((bool)plantData["pick"])
                 {
                     GameObject newButton = Instantiate(ButtonPrefab, PlantPanel);
                     TMP_Text buttonText = newButton.GetComponentInChildren<TMP_Text>();
@@ -165,16 +165,15 @@ public class IllustratedBookButton : MonoBehaviour
     {
         LoadJsonData();
 
-        if (jsonData != null && jsonData.ContainsKey("Enemy"))
+        if (jsonData != null && jsonData.Keys.Contains("Enemy"))
         {
-            Dictionary<string, Dictionary<string, object>> enemies = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, object>>>(jsonData["Enemy"].ToString());
-
-            foreach (var enemy in enemies)
+            JsonData enemies = jsonData["Enemy"];
+            foreach (var enemyKey in enemies.Keys)
             {
-                string enemyName = enemy.Key;
-                var enemyData = enemy.Value;
+                JsonData enemyData = enemies[enemyKey];
+                string enemyName = enemyKey;
 
-                if (enemyData.ContainsKey("alive") && !(bool)enemyData["alive"])
+                if (!(bool)enemyData["alive"])
                 {
                     GameObject newButton = Instantiate(ButtonPrefab, EnemyPanel);
                     TMP_Text buttonText = newButton.GetComponentInChildren<TMP_Text>();
