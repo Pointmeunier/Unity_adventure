@@ -302,6 +302,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2765758314578105725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +366,7 @@ MonoBehaviour:
   IsFacingRight: 1
   chaseRange: 6
   boostedSpeed: 75
-  attackRange: 4
+  attackRange: 7
   attackCooldown: 1
 --- !u!1 &5637809433026850890
 GameObject:
