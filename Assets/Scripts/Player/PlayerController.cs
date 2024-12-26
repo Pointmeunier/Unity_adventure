@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
 {
     public PalyerInputControll inputControll;
     public Vector2 inputDirection;
+
+    //植物音效
+    public AudioClip boostSound;  // 增益音效
+    public AudioClip debuffSound; // 減益音效
+    private AudioSource audioSource; // 播放音效的音頻源
     
     public Attack[] attackComponents; // damage 
 
@@ -41,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         physicscheck = GetComponent<PhysicsCheck>();
         inputControll = new PalyerInputControll();
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +62,24 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+    // 播放增益音效
+    public void PlayBoostSound()
+    {
+        if (audioSource != null && boostSound != null)
+        {
+            audioSource.PlayOneShot(boostSound); // 播放一次增益音效
+        }
+    }
+
+    // 播放減益音效
+    public void PlayDebuffSound()
+    {
+        if (audioSource != null && debuffSound != null)
+        {
+            audioSource.PlayOneShot(debuffSound); // 播放一次減益音效
+        }
+    }
 
     private void OnEnable()
     {
