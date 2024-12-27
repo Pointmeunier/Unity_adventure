@@ -116,4 +116,23 @@ public class PlayerInteraction : MonoBehaviour
             canInteract = false;
         }
     }
+
+    public void OnInteractButton()
+    {
+        if (canInteract && currentItem != null)
+        {
+            // 应用物品效果
+            currentItem.ApplyEffect(GetComponent<PlayerController>());
+
+            // 隐藏提示框
+            if (interactionImage != null)
+            {
+                interactionImage.SetActive(false);
+            }
+
+            // 清除当前物品
+            currentItem = null;
+            canInteract = false;
+        }
+    }
 }
